@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app-deployment
+  labels:
+    author: boney
+    name: result-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: result-app-deployment
+      author: boney
+  template:
+    metadata:
+      name: result-app-pod
+      labels:
+        author: boney
+        name: result-app-deployment
+    spec:
+      containers:
+        - name: result-app
+          image: dockersamples/examplevotingapp_result
+...
